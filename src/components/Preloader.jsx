@@ -3,8 +3,8 @@ import '../App.css'
 
 const Preloader = () => {
    return (
-      <section>
-         <span className="load"></span>
+      <section className='section'>
+         <span className='load'></span>
       </section>
    )
 }
