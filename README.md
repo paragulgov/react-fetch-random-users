@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# react-fetch-random-users
 
 A simple fetch random users React App. 
 
