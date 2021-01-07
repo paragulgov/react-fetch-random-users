@@ -18,7 +18,7 @@ class App extends React.Component {
          .then(result => {
             this.setState({ users: result.results, mountLoading: false, btnLoading: false })
          })
-         .catch(e => console.log(e));
+         .catch(e => console.log(e))
    }
 
    onBtnClick = () => {
