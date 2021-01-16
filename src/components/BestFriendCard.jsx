@@ -1,20 +1,16 @@
 import React from 'react'
-import UserAvatar from './UserAvatar';
-import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
-import Button from './Button';
+import { Card, CardBody, CardTitle } from 'reactstrap'
+import Button from './Button'
 
-const UserCard = () => {
+const BestFriendsCard = ({ friend, onDel }) => {
    return (
       <Card className='mb-3 w-25'>
-         <UserAvatar/>
          <CardBody>
-            <CardTitle tag='h5'>name</CardTitle>
-            <CardSubtitle tag='h6' className='text-muted'>email</CardSubtitle>
-            <CardText>123</CardText>
+            <CardTitle tag='h5'>{`${ friend.firstName } ${ friend.lastName }`}</CardTitle>
          </CardBody>
-         <Button onClick={ () => { console.log('delete') } } label='Remove from friends' color='danger'/>
+         <Button onClick={ () => onDel(friend.firstName, friend.lastName) } label='Remove from friends' color='danger'/>
       </Card>
    )
 }
 
-export default UserCard
+export default BestFriendsCard

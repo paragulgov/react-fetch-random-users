@@ -3,7 +3,7 @@ import UserAvatar from './UserAvatar'
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import Button from './Button'
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, onAdd }) => {
    return (
       <Card className='mb-3 w-25'>
          <UserAvatar src={ user.picture.large }/>
@@ -12,7 +12,7 @@ const UserCard = ({ user }) => {
             <CardSubtitle tag='h6' className='text-muted'>{ user.email }</CardSubtitle>
             <CardText>{ `${ user.phone } ${ user.nat }` }</CardText>
          </CardBody>
-         <Button onClick={ () => { console.log('add') } } label='Add to friends' color='success'/>
+         <Button onClick={ () => onAdd(user.name.first, user.name.last) } label='Add to friends' color='success'/>
       </Card>
    )
 }
