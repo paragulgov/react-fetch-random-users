@@ -3,6 +3,7 @@ import UsersList from './components/UsersList'
 import Button from './components/Button'
 import Preloader from './components/Preloader'
 import { Container } from 'reactstrap'
+import BestFriendsList from './components/BestFriendsList'
 
 class App extends React.Component {
    constructor(props) {
@@ -41,9 +42,11 @@ class App extends React.Component {
       return (
          <Container className='text-center'>
 
-               <Button onClick={ this.onBtnClick } label='Request new users' btnLoading={ this.state.btnLoading }/>
+            <Button onClick={ this.onBtnClick } label='Request new users' btnLoading={ this.state.btnLoading } color='primary'/>
 
-               <UsersList users={ this.state.users }/>
+            <UsersList users={ this.state.users }/>
+
+            <BestFriendsList/>
 
          </Container>
       )
