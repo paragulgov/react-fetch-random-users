@@ -5,6 +5,7 @@ import Preloader from './components/Preloader'
 import { Container } from 'reactstrap'
 import BestFriendsList from './components/BestFriendsList'
 import { connect } from 'react-redux'
+import { addToFriends, deleteFromFriends } from './redux/actions'
 
 class App extends React.Component {
    constructor(props) {
@@ -38,11 +39,12 @@ class App extends React.Component {
 
       return (
          <Container className='text-center'>
-            <Button onClick={ this.fetchNewUsers } label='Request new users' btnLoading={ this.state.btnLoading } color='primary'/>
+            <Button onClick={ this.fetchNewUsers } label='Request new users' btnLoading={ this.state.btnLoading }
+                    color='primary'/>
 
-            <UsersList users={ this.state.users } onAdd={this.props.onAdd}/>
+            <UsersList users={ this.state.users } onAdd={ this.props.onAdd }/>
 
-            <BestFriendsList friends={this.props.friends} onDel={this.props.onDel}/>
+            <BestFriendsList friends={ this.props.friends } onDel={ this.props.onDel }/>
 
          </Container>
       )
@@ -58,8 +60,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
    return {
-      onAdd: (firstName, lastName) => dispatch({ type: 'ADD_TO_FRIENDS', firstName, lastName }),
-      onDel: (firstName, lastName) => dispatch({ type: 'DELETE_FROM_FRIENDS', firstName, lastName })
+      onAdd: (firstName, lastName) => dispatch(addToFriends(firstName, lastName)),
+      onDel: (firstName, lastName) => dispatch(deleteFromFriends(firstName, lastName))
    }
 }
 

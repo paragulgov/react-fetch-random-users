@@ -1,10 +1,12 @@
+import { ADD_TO_FRIENDS, DELETE_FROM_FRIENDS } from './actionTypes'
+
 const initialState = {
    friends: []
 }
 
 export default function rootReducer(state = initialState, action) {
    switch (action.type) {
-      case 'ADD_TO_FRIENDS':
+      case ADD_TO_FRIENDS:
          if (!state.friends.some(friend => friend.firstName === action.firstName)) {
             const newFriend = { firstName: action.firstName, lastName: action.lastName }
             return {
@@ -14,7 +16,7 @@ export default function rootReducer(state = initialState, action) {
          } else {
             return state
          }
-      case 'DELETE_FROM_FRIENDS':
+      case DELETE_FROM_FRIENDS:
          return {
             ...state,
             friends: [...state.friends.filter(friend => friend.firstName !== action.firstName)]
